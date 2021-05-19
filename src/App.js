@@ -16,6 +16,10 @@ function App() {
     setQuery(e);
     console.log(query);
   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    UpdateQuery(e);
+  }
   function UpdateQuery(e) {
     {
       if (query == 1) {
@@ -52,7 +56,7 @@ function App() {
           </Navbar>
          </div>
         <div style={{ padding: "8% 3%", width: '100%' }}>
-          <Form   >
+          <Form   onSubmit={(e) => handleSubmit(e)} >
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Write the SQL Query</Form.Label>
               <Form.Control type="number" placeholder="Enter SQL Query" onChange={(e) => changeQuery(e.target.value)} />
@@ -81,7 +85,7 @@ function App() {
                       <td>SELECT * FROM TABLE WHERE Country = "UK" AND ContactTitle ="Sales Representative"</td>
                     </tr>
                     <tr>
-                      <td>2</td>
+                      <td>3</td>
                       <td>SELECT * FROM TABLE WHERE ContactTitle = "Owner"</td>
                     </tr>
                     <tr>
